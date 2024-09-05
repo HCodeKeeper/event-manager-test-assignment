@@ -10,7 +10,7 @@ from authentication.serializers import CustomTokenObtainPairSerializer, Register
 from services.auth import AuthService
 
 
-@extend_schema(tags=["Auth"])
+@extend_schema(tags=["auth"])
 class RegisterView(generics.CreateAPIView):
     """
     API endpoint that allows registering new users.
@@ -37,12 +37,12 @@ class RegisterView(generics.CreateAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@extend_schema(tags=["Auth"])
+@extend_schema(tags=["auth"])
 class EmailTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
 
 
-@extend_schema(tags=["Auth"])
+@extend_schema(tags=["auth"])
 class CustomTokenObtainPairView(EmailTokenObtainPairView):
 
     def post(self, request, *args, **kwargs):

@@ -6,13 +6,13 @@ from rest_framework.permissions import IsAuthenticated
 from custom_users.serializers import UserSerializer
 
 
-@extend_schema(tags=["Users"])
+@extend_schema(tags=["users"])
 class UserView(generics.ListAPIView):
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
 
 
-@extend_schema(tags=["Users"])
+@extend_schema(tags=["users"])
 class MeView(generics.RetrieveAPIView):
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer

@@ -1,13 +1,13 @@
 from django.contrib.auth import get_user_model
 from drf_spectacular.utils import extend_schema
-from rest_framework import generics
+from rest_framework import generics, viewsets
 from rest_framework.permissions import IsAuthenticated
 
 from custom_users.serializers import UserSerializer
 
 
 @extend_schema(tags=["users"])
-class UserView(generics.ListAPIView):
+class UserViewSet(viewsets.GenericViewSet, generics.ListAPIView, generics.RetrieveAPIView):
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
 

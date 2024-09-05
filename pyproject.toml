@@ -34,9 +34,9 @@ flake8-pyproject = "^1.2.3"
 pytest = "^8.2.2"
 
 [tool.pytest.ini_options]
-DJANGO_SETTINGS_MODULE = 'src.api.settings.local'
+DJANGO_SETTINGS_MODULE = 'src.event_manager.settings.local'
 python_files = ['tests.py', 'test_*.py', '*_tests.py']
-pythonpath = '. src'
+pythonpath = ['.', 'src']
 
 [tool.commitizen]
 name = "cz_conventional_commits"
